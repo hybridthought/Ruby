@@ -1,0 +1,3 @@
+If you want to serve static files Sinatra expects to see a public folder which it will serve from the root of the server address.
+
+In the example here a static CSS file will be served form the server context of /css/main.css.

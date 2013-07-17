@@ -1,0 +1,35 @@
+<!--
+layout.erb is a special Sinatra convention that allows you to wrap all other views with the data contained in this file.
+This allows you to create a master template to control the overall look and feel for your web app.. 
+
+For Example:  If you navigated to the "about" path defined in this sample, the about.erb page will be rendered within this master layout.
+
+-->
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>layout</title>
+	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<!--
+In this simple example I am defining a global header that will be present in all rendered views.
+-->
+<h1 id="header">Header</h1>
+
+<!--
+Here is were we drop the data from any dynamic view requested by the client.
+
+The "yield" command here is key to the convention of the "layout.erb".
+
+Essentially it is as if...
+When the "erb" command on the the controller side is executed, Sinatra knows to execute this layout.erb file, and process any other views as a code block when the "yield" command is encountered.
+	
+Bottom Line...
+yield in the layout.erb file tells Sinatra to render the view requested in the server and drop that view at this point in the overall layout.	
+-->
+<%= yield%>
+
+<!--
+In this simple example I am defining a global footer that will be present in all rendered views.
+-->
+<h1 id="footer">Footer</h1>

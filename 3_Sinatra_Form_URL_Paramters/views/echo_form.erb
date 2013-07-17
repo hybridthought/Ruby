@@ -1,0 +1,19 @@
+<form action="/echo" method="Post" accept-charset="utf-8">
+	<label for="string">String:</label>
+	
+	<!--
+	NOTE: In this line, we are reading some value defined in the script, and calling the h method on it.
+	If you look at the server code, you will see that "h" is actually an aliased method for "escape_html" from Rack::Utils class.
+	We want to escape the string first to protect against any insertion of harmful code by a user, via the URL.
+	Aliasing this lets us hide methods and or stream line code.
+	-->
+	<input value="<%= h @default_string %>" type="text" name="string" id="string">
+
+	<input type="checkbox" name="reverse" value="1" id="reverse">	
+	<label for="reverse">Reverse</label>
+	
+	<input type="checkbox" name="upcase" value="1" id="upcase">
+	<label for="upcase">Upcase</label>
+	
+	<input type="submit" value="Go!">
+</form>
